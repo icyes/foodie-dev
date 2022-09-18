@@ -1,5 +1,9 @@
 server:
   port: 8888
+  tomcat:
+    uri-encoding: utf-8
+  max-http-header-size: 80KB
+
 
 spring:
   datasource:
@@ -18,3 +22,11 @@ spring:
       connection-test-query: SELECT 1 # 测试连接的sql语句
       pool-name: DataSourceHikariCP # 连接池名称
 
+mybatis:
+  type-alises-package: com.imooc.pojo # 扫描实体类的包
+  mapper-locations: classpath:mapper/*.xml # 扫描mapper.xml的路径
+
+mapper:
+  mappers: com.imooc.my.mapper.MyMapper # 自定义mapper的包路径
+  not-empty: false # 是否允许单次插入多条数据
+  identity: MYSQL # 主键回填策略
